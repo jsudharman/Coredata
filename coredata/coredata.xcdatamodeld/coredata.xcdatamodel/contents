@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F1605" minimumToolsVersion="Automatic">
+    <entity name="Asset" syncable="YES">
+        <attribute name="id" optional="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" syncable="YES"/>
+        <relationship name="inspection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Inspection" inverseName="asset" inverseEntity="Inspection" syncable="YES"/>
+        <relationship name="pastInspections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Inspection" inverseName="newRelationship" inverseEntity="Inspection" syncable="YES"/>
+        <relationship name="workorder" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workorder" inverseName="assetsToInspect" inverseEntity="Workorder" syncable="YES"/>
+    </entity>
+    <entity name="Contact" syncable="YES">
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Facitliy" inverseName="newRelationship" inverseEntity="Facitliy" syncable="YES"/>
+    </entity>
+    <entity name="Equipment" syncable="YES">
+        <attribute name="attribute" optional="YES" syncable="YES"/>
+        <attribute name="attribute1" optional="YES" syncable="YES"/>
+    </entity>
+    <entity name="Facitliy" syncable="YES">
+        <attribute name="address" optional="YES" syncable="YES"/>
+        <attribute name="childIDs" optional="YES" syncable="YES"/>
+        <attribute name="facDescription" optional="YES" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="newRelationship" inverseEntity="Contact" syncable="YES"/>
+    </entity>
+    <entity name="Inspection" syncable="YES">
+        <attribute name="data" optional="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" syncable="YES"/>
+        <relationship name="asset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="inspection" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="pastInspections" inverseEntity="Asset" syncable="YES"/>
+    </entity>
+    <entity name="Location" syncable="YES">
+        <attribute name="address" optional="YES" syncable="YES"/>
+        <attribute name="latlong" optional="YES" syncable="YES"/>
+    </entity>
+    <entity name="SafetyAssessment" syncable="YES"/>
+    <entity name="Template" syncable="YES">
+        <attribute name="id" optional="YES" syncable="YES"/>
+    </entity>
+    <entity name="Workorder" syncable="YES">
+        <attribute name="id" optional="YES" syncable="YES"/>
+        <attribute name="location" optional="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" syncable="YES"/>
+        <relationship name="assetsToInspect" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Asset" inverseName="workorder" inverseEntity="Asset" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Workorder" positionX="1080" positionY="-54" width="135" height="103"/>
+        <element name="Asset" positionX="1350" positionY="-90" width="128" height="118"/>
+        <element name="Template" positionX="909" positionY="149" width="128" height="58"/>
+        <element name="Location" positionX="1350" positionY="-180" width="128" height="73"/>
+        <element name="Inspection" positionX="1348" positionY="108" width="128" height="118"/>
+        <element name="Equipment" positionX="1503" positionY="-180" width="128" height="73"/>
+        <element name="Facitliy" positionX="1348" positionY="-351" width="128" height="103"/>
+        <element name="SafetyAssessment" positionX="1339" positionY="-450" width="128" height="43"/>
+        <element name="Contact" positionX="1521" positionY="-306" width="128" height="58"/>
+    </elements>
+</model>
